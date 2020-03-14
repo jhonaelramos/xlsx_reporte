@@ -20,7 +20,7 @@ Para hacerlo, podemos comenzar con un pequeño programa como el siguiente:
 import xlsxwriter
 
 # Cree un libro de trabajo y agregue una hoja de trabajo.
-workbook = xlsxwriter.Workbook('Expenses01.xlsx')
+workbook = xlsxwriter.Workbook('gastos01.xlsx')
 worksheet = workbook.add_worksheet()
 
 # Algunos datos que queremos escribir en la hoja de trabajo.
@@ -36,9 +36,9 @@ row = 0
 col = 0
 
 # Iterar sobre los datos y escribirlos fila por fila.
-for item, cost in (expenses):
+for item, costo in (gastos):
     worksheet.write(row, col,     item)
-    worksheet.write(row, col + 1, cost)
+    worksheet.write(row, col + 1, costo)
     row += 1
 
 # Escribe un total usando una fórmula.

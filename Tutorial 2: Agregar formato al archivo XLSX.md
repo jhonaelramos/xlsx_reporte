@@ -51,3 +51,36 @@ Para hacer esto, podemos extender nuestro programa de la siguiente manera:
 
  workbook.close()
 ```
+
+La principal diferencia entre este y el programa anterior es que hemos agregado dos objetos de formato que podemos usar para formatear celdas en la hoja de cálculo.
+
+Los objetos de formato representan todas las propiedades de formato que se pueden aplicar a una celda en Excel, como fuentes, formato de números, colores y bordes. Esto se explica con más detalle en la sección The Format Class.
+
+Por ahora evitaremos entrar en detalles y solo usaremos una cantidad limitada de la funcionalidad de formato para agregar un formato simple:
+
+```
+# Add a bold format to use to highlight cells.
+bold = workbook.add_format({'bold': True})
+
+# Add a number format for cells with money.
+dinero = workbook.add_format({'num_format': '$#,##0'})
+```
+
+Luego podemos pasar estos formatos como un tercer parámetro opcional al metodo worksheet.write() Método para formatear los datos en la celda:
+```
+write(row, column, token, [format])
+```
+
+Me gusta esto:
+```
+worksheet.write(row, 0, 'Total', bold)
+```
+
+Lo que nos lleva a otra nueva característica en este programa. Para agregar los encabezados en la primera fila de la hoja de trabajo, utilizamos write() Me gusta esto:
+
+```
+worksheet.write('A1', 'Item', bold)
+worksheet.write('B1', 'Costo', bold)
+```
+
+Entonces, en lugar de (row, col) Nosotros usamos el excel 'A1' notación de estilo Ver https://xlsxwriter.readthedocs.io/working_with_cell_notation.html#cell-notation para más detalles, pero no se preocupe demasiado por ahora. Es solo un poco de azúcar sintáctica para ayudar a diseñar las hojas de trabajo.

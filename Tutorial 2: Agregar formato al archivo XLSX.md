@@ -19,7 +19,7 @@ Para hacer esto, podemos extender nuestro programa de la siguiente manera:
  bold = workbook.add_format({'bold': True})
 
  # Agregue un formato de número para celdas con dinero.
- money = workbook.add_format({'num_format': '$#,##0'})
+ dinero = workbook.add_format({'num_format': '$#,##0'})
 
  # Escribe algunos encabezados de datos.
 
